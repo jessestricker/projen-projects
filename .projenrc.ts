@@ -4,7 +4,7 @@ const project = new cdk.JsiiProject({
 
   // node
   defaultReleaseBranch: "main",
-  packageManager: javascript.NodePackageManager.NPM,
+  packageManager: javascript.NodePackageManager.PNPM,
   prettier: true,
 
   // typescript
