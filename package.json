@@ -40,7 +40,7 @@
     "@typescript-eslint/eslint-plugin": "^8",
     "@typescript-eslint/parser": "^8",
     "commit-and-tag-version": "^12",
-    "constructs": "^10.0.0",
+    "constructs": "10.0.0",
     "eslint": "^9",
     "eslint-config-prettier": "^10.0.2",
     "eslint-import-resolver-typescript": "^3.8.3",
@@ -54,13 +54,13 @@
     "jsii-pacmak": "^1.108.0",
     "jsii-rosetta": "~5.7.0",
     "prettier": "^3.5.2",
-    "projen": "^0.91.13",
+    "projen": "0.91.13",
     "ts-jest": "^29.2.6",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.3"
   },
   "peerDependencies": {
-    "constructs": "^10.4.2",
+    "constructs": "^10.0.0",
     "projen": "^0.91.13"
   },
   "pnpm": {},
