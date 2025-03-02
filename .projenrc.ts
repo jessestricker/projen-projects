@@ -10,6 +10,8 @@ const project = new cdk.JsiiProject({
   packageManager: javascript.NodePackageManager.PNPM,
   prettier: true,
   pullRequestTemplate: false,
+  packageName: "@jessestricker/projen-projects",
+  npmRegistryUrl: "https://npm.pkg.github.com",
 
   // typescript
   projenrcTs: true,

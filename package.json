@@ -1,5 +1,5 @@
 {
-  "name": "projen-projects",
+  "name": "@jessestricker/projen-projects",
   "repository": {
     "type": "git",
     "url": "https://github.com/jessestricker/projen-projects.git"
@@ -63,7 +63,7 @@
   "main": "lib/index.js",
   "license": "Apache-2.0",
   "publishConfig": {
-    "access": "public"
+    "registry": "https://npm.pkg.github.com/"
   },
   "version": "0.0.0",
   "jest": {
