@@ -11,4 +11,20 @@ describe("BaseProject", () => {
 
     expect(snapshot).toMatchSnapshot();
   });
+
+  test("disallows .projenrc.json", () => {
+    expect(() => {
+      new BaseProject({
+        name: "base-project",
+        projenrcJson: true,
+      });
+    }).toThrow(".projenrc.json");
+
+    expect(() => {
+      new BaseProject({
+        name: "base-project",
+        projenrcJsonOptions: {},
+      });
+    }).toThrow(".projenrc.json");
+  });
 });
