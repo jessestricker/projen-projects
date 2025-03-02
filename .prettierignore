@@ -17,3 +17,4 @@ LICENSE
 package.json
 tsconfig.dev.json
 pnpm-lock.yaml
+API.md

@@ -26,6 +26,7 @@ const project = new cdk.JsiiProject({
 project.prettier!.ignoreFile!.exclude(
   ...project.files.map((file) => file.path),
   project.package.lockFile,
+  "API.md",
 );
 project.addTask("prettier", { exec: "prettier --write ." });
 
