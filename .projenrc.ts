@@ -8,6 +8,7 @@ const project = new cdk.JsiiProject({
   // node
   defaultReleaseBranch: "main",
   packageManager: javascript.NodePackageManager.PNPM,
+  peerDeps: ["constructs", "projen"],
   prettier: true,
   pullRequestTemplate: false,
   packageName: "@jessestricker/projen-projects",
