@@ -2,7 +2,7 @@
   "name": "projen-projects",
   "repository": {
     "type": "git",
-    "url": "https://github.com/git/projen-projects.git"
+    "url": "https://github.com/jessestricker/projen-projects.git"
   },
   "scripts": {
     "build": "npx projen build",
