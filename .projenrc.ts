@@ -2,10 +2,14 @@ import { cdk, javascript } from "projen";
 const project = new cdk.JsiiProject({
   name: "projen-projects",
 
+  // github
+  githubOptions: { mergify: false },
+
   // node
   defaultReleaseBranch: "main",
   packageManager: javascript.NodePackageManager.PNPM,
   prettier: true,
+  pullRequestTemplate: false,
 
   // typescript
   projenrcTs: true,
