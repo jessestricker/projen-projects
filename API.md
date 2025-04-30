@@ -751,6 +751,8 @@ const baseProjectOptions: BaseProjectOptions = { ... }
 | <code><a href="#@jessestricker/projen-projects.BaseProjectOptions.property.projenrcJsonOptions">projenrcJsonOptions</a></code> | <code>projen.ProjenrcJsonOptions</code> | Options for .projenrc.json. |
 | <code><a href="#@jessestricker/projen-projects.BaseProjectOptions.property.renovatebot">renovatebot</a></code> | <code>boolean</code> | Use renovatebot to handle dependency upgrades. |
 | <code><a href="#@jessestricker/projen-projects.BaseProjectOptions.property.renovatebotOptions">renovatebotOptions</a></code> | <code>projen.RenovatebotOptions</code> | Options for renovatebot. |
+| <code><a href="#@jessestricker/projen-projects.BaseProjectOptions.property.devDeps">devDeps</a></code> | <code>string[]</code> | The NPM dependencies used for development. |
+| <code><a href="#@jessestricker/projen-projects.BaseProjectOptions.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The Node package manager used to install dependencies and run scripts. |
 
 ---
 
@@ -912,6 +914,31 @@ public readonly renovatebotOptions: RenovatebotOptions;
 - *Default:* default options
 
 Options for renovatebot.
+
+---
+
+##### `devDeps`<sup>Optional</sup> <a name="devDeps" id="@jessestricker/projen-projects.BaseProjectOptions.property.devDeps"></a>
+
+```typescript
+public readonly devDeps: string[];
+```
+
+- *Type:* string[]
+
+The NPM dependencies used for development.
+
+---
+
+##### `packageManager`<sup>Optional</sup> <a name="packageManager" id="@jessestricker/projen-projects.BaseProjectOptions.property.packageManager"></a>
+
+```typescript
+public readonly packageManager: NodePackageManager;
+```
+
+- *Type:* projen.javascript.NodePackageManager
+- *Default:* javascript.NodePackageManager.NPM
+
+The Node package manager used to install dependencies and run scripts.
 
 ---
 
