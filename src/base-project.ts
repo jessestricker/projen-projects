@@ -1,5 +1,15 @@
-import { Project, ProjectOptions, javascript, typescript } from "projen";
+import {
+  Project,
+  ProjectOptions,
+  javascript,
+  typescript,
+  github,
+  SampleReadme,
+} from "projen";
 
+/**
+ * Options for the base project.
+ */
 export interface BaseProjectOptions extends ProjectOptions {
   /**
    * The Node package manager used to install dependencies and run scripts.
@@ -12,9 +22,29 @@ export interface BaseProjectOptions extends ProjectOptions {
    * The NPM dependencies used for development.
    */
   readonly devDeps?: string[];
+
+  /**
+   * Enable the GitHub integration.
+   *
+   * Enabled by default for root projects. Disabled for non-root projects.
+   *
+   * @default true
+   */
+  readonly github?: boolean;
+
+  /**
+   * The options for the GitHub integration.
+   *
+   * @default - see GitHubOptions
+   */
+  readonly githubOptions?: github.GitHubOptions;
 }
 
 export class BaseProject extends Project {
+  readonly github?: github.GitHub;
+
+  private annotatedAsGenerated?: Set<string>;
+
   constructor(options: BaseProjectOptions) {
     if (options.projenrcJson || options.projenrcJsonOptions) {
       throw new Error(".projenrc.json not supported");
@@ -49,6 +79,27 @@ export class BaseProject extends Project {
     this.defaultTask?.reset(
       `${packageRunnerCommand} ts-node --project ${projenrc.tsconfig.fileName} ${projenrc.filePath}`,
     );
+
+    // github
+    if (options.github ?? !this.parent) {
+      this.github = new github.GitHub(this, options.githubOptions);
+      new SampleReadme(this);
+    }
+  }
+
+  override annotateGenerated(glob: string): void {
+    if (this.annotatedAsGenerated === undefined) {
+      this.annotatedAsGenerated = new Set<string>();
+    }
+    this.annotatedAsGenerated.add(glob);
+  }
+
+  override preSynthesize(): void {
+    if (this.github) {
+      this.annotatedAsGenerated?.forEach((glob) =>
+        this.gitattributes.addAttributes(glob, "linguist-generated"),
+      );
+    }
   }
 }
 

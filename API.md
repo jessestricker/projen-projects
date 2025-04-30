@@ -155,7 +155,7 @@ The message.
 ##### `annotateGenerated` <a name="annotateGenerated" id="@jessestricker/projen-projects.BaseProject.annotateGenerated"></a>
 
 ```typescript
-public annotateGenerated(_glob: string): void
+public annotateGenerated(glob: string): void
 ```
 
 Consider a set of files as "generated".
@@ -164,11 +164,9 @@ This method is implemented by
 derived classes and used for example, to add git attributes to tell GitHub
 that certain files are generated.
 
-###### `_glob`<sup>Required</sup> <a name="_glob" id="@jessestricker/projen-projects.BaseProject.annotateGenerated.parameter._glob"></a>
+###### `glob`<sup>Required</sup> <a name="glob" id="@jessestricker/projen-projects.BaseProject.annotateGenerated.parameter.glob"></a>
 
 - *Type:* string
-
-the glob pattern to match (could be a file path).
 
 ---
 
@@ -400,6 +398,7 @@ When given a project, this it the project itself.
 | <code><a href="#@jessestricker/projen-projects.BaseProject.property.defaultTask">defaultTask</a></code> | <code>projen.Task</code> | This is the "default" task, the one that executes "projen". |
 | <code><a href="#@jessestricker/projen-projects.BaseProject.property.initProject">initProject</a></code> | <code>projen.InitProject</code> | The options used when this project is bootstrapped via `projen new`. |
 | <code><a href="#@jessestricker/projen-projects.BaseProject.property.parent">parent</a></code> | <code>projen.Project</code> | A parent project. |
+| <code><a href="#@jessestricker/projen-projects.BaseProject.property.github">github</a></code> | <code>projen.github.GitHub</code> | *No description.* |
 
 ---
 
@@ -700,6 +699,16 @@ If undefined, this is the root project.
 
 ---
 
+##### `github`<sup>Optional</sup> <a name="github" id="@jessestricker/projen-projects.BaseProject.property.github"></a>
+
+```typescript
+public readonly github: GitHub;
+```
+
+- *Type:* projen.github.GitHub
+
+---
+
 #### Constants <a name="Constants" id="Constants"></a>
 
 | **Name** | **Type** | **Description** |
@@ -727,6 +736,8 @@ this task should synthesize the project files.
 
 ### BaseProjectOptions <a name="BaseProjectOptions" id="@jessestricker/projen-projects.BaseProjectOptions"></a>
 
+Options for the base project.
+
 #### Initializer <a name="Initializer" id="@jessestricker/projen-projects.BaseProjectOptions.Initializer"></a>
 
 ```typescript
@@ -752,6 +763,8 @@ const baseProjectOptions: BaseProjectOptions = { ... }
 | <code><a href="#@jessestricker/projen-projects.BaseProjectOptions.property.renovatebot">renovatebot</a></code> | <code>boolean</code> | Use renovatebot to handle dependency upgrades. |
 | <code><a href="#@jessestricker/projen-projects.BaseProjectOptions.property.renovatebotOptions">renovatebotOptions</a></code> | <code>projen.RenovatebotOptions</code> | Options for renovatebot. |
 | <code><a href="#@jessestricker/projen-projects.BaseProjectOptions.property.devDeps">devDeps</a></code> | <code>string[]</code> | The NPM dependencies used for development. |
+| <code><a href="#@jessestricker/projen-projects.BaseProjectOptions.property.github">github</a></code> | <code>boolean</code> | Enable the GitHub integration. |
+| <code><a href="#@jessestricker/projen-projects.BaseProjectOptions.property.githubOptions">githubOptions</a></code> | <code>projen.github.GitHubOptions</code> | The options for the GitHub integration. |
 | <code><a href="#@jessestricker/projen-projects.BaseProjectOptions.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The Node package manager used to install dependencies and run scripts. |
 
 ---
@@ -926,6 +939,34 @@ public readonly devDeps: string[];
 - *Type:* string[]
 
 The NPM dependencies used for development.
+
+---
+
+##### `github`<sup>Optional</sup> <a name="github" id="@jessestricker/projen-projects.BaseProjectOptions.property.github"></a>
+
+```typescript
+public readonly github: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Enable the GitHub integration.
+
+Enabled by default for root projects. Disabled for non-root projects.
+
+---
+
+##### `githubOptions`<sup>Optional</sup> <a name="githubOptions" id="@jessestricker/projen-projects.BaseProjectOptions.property.githubOptions"></a>
+
+```typescript
+public readonly githubOptions: GitHubOptions;
+```
+
+- *Type:* projen.github.GitHubOptions
+- *Default:* see GitHubOptions
+
+The options for the GitHub integration.
 
 ---
 
