@@ -1,4 +1,7 @@
 import { cdk, javascript } from "projen";
+
+const typescriptVersion = "~5.8";
+
 const project = new cdk.JsiiProject({
   name: "projen-projects",
 
@@ -15,10 +18,11 @@ const project = new cdk.JsiiProject({
   npmRegistryUrl: "https://npm.pkg.github.com",
 
   // typescript
+  typescriptVersion: typescriptVersion,
   projenrcTs: true,
 
   // jsii
-  jsiiVersion: "~5.7.0",
+  jsiiVersion: typescriptVersion,
   author: "Jesse Stricker",
   authorAddress: "git@jessestricker.de",
   repositoryUrl: "https://github.com/jessestricker/projen-projects.git",
