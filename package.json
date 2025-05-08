@@ -63,7 +63,6 @@
     "constructs": "^10.0.0",
     "projen": ">=0.91.29 <1"
   },
-  "pnpm": {},
   "main": "lib/index.js",
   "license": "Apache-2.0",
   "publishConfig": {
