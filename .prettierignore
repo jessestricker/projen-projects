@@ -7,7 +7,6 @@
 .github/workflows/upgrade-main.yml
 .gitignore
 .npmignore
-.npmrc
 .prettierignore
 .prettierrc.json
 .projen/deps.json
@@ -16,5 +15,5 @@
 LICENSE
 package.json
 tsconfig.dev.json
-pnpm-lock.yaml
+package-lock.json
 API.md
