@@ -4,6 +4,9 @@
     "type": "git",
     "url": "https://github.com/jessestricker/projen-projects.git"
   },
+  "bin": {
+    "gw": "bin/gw"
+  },
   "scripts": {
     "build": "npx projen build",
     "bump": "npx projen bump",

@@ -5,6 +5,7 @@ import {
   typescript,
   github,
   SampleReadme,
+  Task,
 } from "projen";
 
 /**
@@ -42,6 +43,7 @@ export interface BaseProjectOptions extends ProjectOptions {
 
 export class BaseProject extends Project {
   readonly github?: github.GitHub;
+  readonly cleanTask: Task;
 
   private annotatedAsGenerated?: Set<string>;
 
@@ -57,6 +59,10 @@ export class BaseProject extends Project {
     super({
       ...options,
       projenCommand: `${packageRunnerCommand} projen`,
+    });
+
+    this.cleanTask = this.addTask("clean", {
+      description: "Deletes the build output.",
     });
 
     // node package
