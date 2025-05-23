@@ -5,7 +5,9 @@ describe("GradleProject", () => {
   test("matches snapshot", () => {
     const project = new GradleProject({
       name: "gradle-project",
-      gradleVersion: "8.14",
+      gradleOptions: {
+        version: "8.14",
+      },
     });
 
     const snapshot = Testing.synth(project);

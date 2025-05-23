@@ -866,7 +866,7 @@ Test whether the given construct is a component.
 | --- | --- | --- |
 | <code><a href="#@jessestricker/projen-projects.Gradle.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#@jessestricker/projen-projects.Gradle.property.project">project</a></code> | <code>projen.Project</code> | *No description.* |
-| <code><a href="#@jessestricker/projen-projects.Gradle.property.gradleVersion">gradleVersion</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@jessestricker/projen-projects.Gradle.property.version">version</a></code> | <code>string</code> | *No description.* |
 
 ---
 
@@ -892,10 +892,10 @@ public readonly project: Project;
 
 ---
 
-##### `gradleVersion`<sup>Required</sup> <a name="gradleVersion" id="@jessestricker/projen-projects.Gradle.property.gradleVersion"></a>
+##### `version`<sup>Required</sup> <a name="version" id="@jessestricker/projen-projects.Gradle.property.version"></a>
 
 ```typescript
-public readonly gradleVersion: string;
+public readonly version: string;
 ```
 
 - *Type:* string
@@ -1922,17 +1922,18 @@ const gradleOptions: GradleOptions = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@jessestricker/projen-projects.GradleOptions.property.gradleVersion">gradleVersion</a></code> | <code>string</code> | The Gradle version to use. |
+| <code><a href="#@jessestricker/projen-projects.GradleOptions.property.version">version</a></code> | <code>string</code> | The Gradle version to use. |
 
 ---
 
-##### `gradleVersion`<sup>Required</sup> <a name="gradleVersion" id="@jessestricker/projen-projects.GradleOptions.property.gradleVersion"></a>
+##### `version`<sup>Optional</sup> <a name="version" id="@jessestricker/projen-projects.GradleOptions.property.version"></a>
 
 ```typescript
-public readonly gradleVersion: string;
+public readonly version: string;
 ```
 
 - *Type:* string
+- *Default:* "8.14"
 
 The Gradle version to use.
 
@@ -1970,7 +1971,8 @@ const gradleProjectOptions: GradleProjectOptions = { ... }
 | <code><a href="#@jessestricker/projen-projects.GradleProjectOptions.property.github">github</a></code> | <code>boolean</code> | Enable the GitHub integration. |
 | <code><a href="#@jessestricker/projen-projects.GradleProjectOptions.property.githubOptions">githubOptions</a></code> | <code>projen.github.GitHubOptions</code> | The options for the GitHub integration. |
 | <code><a href="#@jessestricker/projen-projects.GradleProjectOptions.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The Node package manager used to install dependencies and run scripts. |
-| <code><a href="#@jessestricker/projen-projects.GradleProjectOptions.property.gradleVersion">gradleVersion</a></code> | <code>string</code> | The Gradle version to use. |
+| <code><a href="#@jessestricker/projen-projects.GradleProjectOptions.property.gradleOptions">gradleOptions</a></code> | <code><a href="#@jessestricker/projen-projects.GradleOptions">GradleOptions</a></code> | *No description.* |
+| <code><a href="#@jessestricker/projen-projects.GradleProjectOptions.property.sampleCode">sampleCode</a></code> | <code>boolean</code> | *No description.* |
 
 ---
 
@@ -2188,15 +2190,25 @@ The Node package manager used to install dependencies and run scripts.
 
 ---
 
-##### `gradleVersion`<sup>Required</sup> <a name="gradleVersion" id="@jessestricker/projen-projects.GradleProjectOptions.property.gradleVersion"></a>
+##### `gradleOptions`<sup>Optional</sup> <a name="gradleOptions" id="@jessestricker/projen-projects.GradleProjectOptions.property.gradleOptions"></a>
 
 ```typescript
-public readonly gradleVersion: string;
+public readonly gradleOptions: GradleOptions;
 ```
 
-- *Type:* string
+- *Type:* <a href="#@jessestricker/projen-projects.GradleOptions">GradleOptions</a>
+- *Default:* {}
 
-The Gradle version to use.
+---
+
+##### `sampleCode`<sup>Optional</sup> <a name="sampleCode" id="@jessestricker/projen-projects.GradleProjectOptions.property.sampleCode"></a>
+
+```typescript
+public readonly sampleCode: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
 
 ---
 

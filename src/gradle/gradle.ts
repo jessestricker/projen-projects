@@ -1,21 +1,22 @@
-import { Component, TextFile } from "projen";
+import { Component } from "projen";
 import { exec } from "projen/lib/util";
 import { GradleProject } from "./gradle-project";
 
 export interface GradleOptions {
   /**
    * The Gradle version to use.
+   * @default "8.14"
    */
-  readonly gradleVersion: string;
+  readonly version?: string;
 }
 
 export class Gradle extends Component {
-  readonly gradleVersion: string;
+  readonly version: string;
 
   constructor(project: GradleProject, options: GradleOptions) {
     super(project);
 
-    this.gradleVersion = options.gradleVersion;
+    this.version = options.version ?? "8.14";
 
     // git
     project.gitignore.addPatterns("/.gradle/", "/build/");
@@ -46,11 +47,6 @@ export class Gradle extends Component {
       exec: "gw clean",
     });
     project.cleanTask.spawn(cleanTask);
-
-    // settings.gradle.kts
-    new TextFile(this, "settings.gradle.kts", {
-      lines: [`rootProject.name = "${project.name}";`],
-    });
   }
 
   override postSynthesize(): void {
@@ -58,7 +54,7 @@ export class Gradle extends Component {
 
     const generateGradleWrapper = (opts: { useWrapper: boolean }) => {
       const program = opts.useWrapper ? "gw" : "gradle";
-      exec(`${program} wrapper --gradle-version ${this.gradleVersion}`, {
+      exec(`${program} wrapper --gradle-version ${this.version}`, {
         cwd: this.project.outdir,
       });
     };
