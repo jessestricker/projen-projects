@@ -58,6 +58,8 @@ node_modules/
 !/tsconfig.projen.json
 !/.github/workflows/pull-request-lint.yml
 /.gradle/
+/.idea/
+/.kotlin/
 /build/
 !/.projenrc.ts
 ",

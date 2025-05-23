@@ -19,7 +19,12 @@ export class Gradle extends Component {
     this.version = options.version ?? "8.14";
 
     // git
-    project.gitignore.addPatterns("/.gradle/", "/build/");
+    project.gitignore.addPatterns(
+      "/.gradle/",
+      "/.idea/",
+      "/.kotlin/",
+      "/build/",
+    );
     project.gitattributes.addAttributes("/gradlew", "text", "eol=lf");
     project.gitattributes.addAttributes("/gradlew.bat", "text", "eol=crlf");
 
