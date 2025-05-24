@@ -9,8 +9,8 @@ A collection of projen projects.
 To set up your repository using one of these projen projects, run one of the following:
 
 - _gradle:_ A generic Gradle project for Kotlin or Java.
-    ```shell
-    npx projen new gradle --from @jessestricker/projen-projects
-    ```
+  ```shell
+  npx projen new gradle --from @jessestricker/projen-projects
+  ```
 
 For all available project types and their options, see the [API docs](./API.md).
