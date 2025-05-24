@@ -7,6 +7,7 @@ const project = new cdk.JsiiProject({
 
   // github
   githubOptions: { mergify: false },
+  gitignore: ["/.idea/", "/.vscode/"],
 
   // node
   defaultReleaseBranch: "main",
