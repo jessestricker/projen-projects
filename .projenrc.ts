@@ -16,7 +16,8 @@ const project = new cdk.JsiiProject({
   prettier: true,
   pullRequestTemplate: false,
   packageName: "@jessestricker/projen-projects",
-  npmRegistryUrl: "https://npm.pkg.github.com",
+  npmAccess: javascript.NpmAccess.PUBLIC,
+  npmProvenance: true,
 
   // typescript
   typescriptVersion: typescriptVersion,
