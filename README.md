@@ -1,6 +1,6 @@
 # projen-projects
 
-[![NPM Version](https://img.shields.io/npm/v/%40jessestricker%2Fprojen-projects?logo=npm)](https://www.npmjs.com/package/@jessestricker/projen-projects)
+[![NPM Version](https://img.shields.io/npm/v/%40jessestricker%2Fprojen-projects?logo=npm&labelColor=%23CB3837&color=gray)](https://www.npmjs.com/package/@jessestricker/projen-projects)
 
 A collection of projen projects.
 
