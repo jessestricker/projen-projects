@@ -161,7 +161,7 @@ node_modules/
         "name": "default",
         "steps": [
           {
-            "exec": "npx ts-node --project tsconfig.projen.json .projenrc.ts",
+            "exec": "ts-node --project tsconfig.projen.json .projenrc.ts",
           },
         ],
       },
