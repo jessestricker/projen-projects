@@ -52,20 +52,17 @@ export class BaseProject extends Project {
       throw new Error(".projenrc.json not supported");
     }
 
-    const packageManager =
-      options.packageManager ?? javascript.NodePackageManager.NPM;
-    const packageRunnerCommand = getPackageRunnerCommand(packageManager);
+    super(options);
 
-    super({
-      ...options,
-      projenCommand: `${packageRunnerCommand} projen`,
-    });
-
+    // tasks
     this.cleanTask = this.addTask("clean", {
       description: "Deletes the build output.",
     });
 
     // node package
+    const packageManager =
+      options.packageManager ?? javascript.NodePackageManager.NPM;
+
     const nodePackage = new javascript.NodePackage(this, {
       devDeps: options.devDeps,
       entrypoint: "",
@@ -83,7 +80,7 @@ export class BaseProject extends Project {
     const projenrc = new typescript.ProjenrcTs(this);
     nodePackage.addDevDeps("ts-node");
     this.defaultTask?.reset(
-      `${packageRunnerCommand} ts-node --project ${projenrc.tsconfig.fileName} ${projenrc.filePath}`,
+      `ts-node --project ${projenrc.tsconfig.fileName} ${projenrc.filePath}`,
     );
 
     // github
@@ -106,22 +103,5 @@ export class BaseProject extends Project {
         this.gitattributes.addAttributes(glob, "linguist-generated"),
       );
     }
-  }
-}
-
-function getPackageRunnerCommand(
-  packageManager: javascript.NodePackageManager,
-) {
-  switch (packageManager) {
-    case javascript.NodePackageManager.YARN_BERRY:
-      return "yarn dlx";
-    case javascript.NodePackageManager.NPM:
-      return "npx";
-    case javascript.NodePackageManager.PNPM:
-      return "pnpx";
-    case javascript.NodePackageManager.BUN:
-      return "bunx";
-    default:
-      throw new Error(`unsupported package manager "${packageManager}"`);
   }
 }
